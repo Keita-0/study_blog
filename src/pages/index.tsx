@@ -27,7 +27,6 @@ const Home: NextPage<Props> = (props) => {
           );
         })}
       </ul>
-      Hello!
     </div>
   );
 };
