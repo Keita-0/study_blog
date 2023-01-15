@@ -7,8 +7,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div className="mx-auto max-w-prose">
       <header className="border-b border-gray-300 py-8">
         <h1>
-          <Link href="/">
-            <a className="text-5xl font-bold">ITブログ</a>
+          <Link href="/" className="text-5xl font-bold">
+            {/* <a className="text-5xl font-bold"> */}
+            ITブログ
+            {/* </a> */}
           </Link>
         </h1>
       </header>
