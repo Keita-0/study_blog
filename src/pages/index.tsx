@@ -2,6 +2,7 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { ComponentProps, FormEventHandler, useState } from "react";
+import { Layout } from "src/component/Layout";
 import { client } from "../libs/client";
 
 export type Blog = {
