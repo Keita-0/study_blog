@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import Tabs from "src/component/Tabs";
 
 type Props = {
@@ -8,12 +8,14 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ children, title }) => {
+  console.log("Layout");
+
   return (
     <div className="flex min-h-screen flex-col font-mono">
       <Head>
         <title>{title}</title>
       </Head>
-      <Tabs tabs={["Tab1", "Tab2", "Tab3"]} />
+      <Tabs tabs={["Home", "Blog", "Profile"]} />
       <main className="flex w-screen flex-1 flex-col items-center justify-center">
         {children}
       </main>

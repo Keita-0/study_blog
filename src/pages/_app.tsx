@@ -1,25 +1,15 @@
 import "src/styles/globals.css";
 import type { AppProps } from "next/app";
 import Link from "next/link";
-import { Layout } from "src/component/Layout";
+import Tabs from "src/component/Tabs";
+import { useState } from "react";
+import { Layout } from "src/Layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [activeTab, setActiveTab] = useState();
   return (
-    // <div className="mx-auto max-w-prose">
-    //   <header className="border-b border-gray-300 py-8">
-    //     <h1>
-    //       <Link href="/" className="text-5xl font-bold">
-    //         {/* <a className="text-5xl font-bold"> */}
-    //         ITブログ
-    //         {/* </a> */}
-    //       </Link>
-    //     </h1>
-    //   </header>
-    //   </div>
-    <Layout title="Keita Blog">
-      <main className="mt-8">
-        <Component {...pageProps} />
-      </main>
+    <Layout>
+      <Component {...pageProps} />
     </Layout>
   );
 }
