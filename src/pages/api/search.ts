@@ -4,7 +4,7 @@ import { Blog } from "src/pages";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const data = await client.getList<Blog>({
-    endpoint: "blog",
+    endpoint: "blogs",
     queries: { q: req.body.q },
   });
 

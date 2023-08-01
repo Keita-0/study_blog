@@ -8,7 +8,7 @@ import { client } from "../libs/client";
 
 export type Blog = {
   title: string;
-  body: string;
+  content: string;
 };
 
 type Props = MicroCMSListResponse<Blog>;
@@ -36,7 +36,6 @@ const Home: NextPage<Props> = (props) => {
   const totalCount = search ? search.totalCount : props.totalCount;
   return (
     <div>
-      <Tabs tabs={["Home", "Blog", "Profile"]} />
       <form className="flex gap-x-2" onSubmit={handleSubmit}>
         <input type="text" name="query" className="border-block border px-2" />
         <button className="border border-black p-2">検索</button>
@@ -68,9 +67,10 @@ const Home: NextPage<Props> = (props) => {
     </div>
   );
 };
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const data = await client.getList<Blog>({
-    endpoint: "blog",
+    endpoint: "blogs",
   });
   return {
     props: data,

@@ -7,6 +7,8 @@ import { Blog } from "src/pages";
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
+  console.log(props);
+
   return (
     <div>
       <h1 className="text-4xl font-bold">{props.title}</h1>
@@ -15,14 +17,14 @@ const BlogId: NextPage<Props> = (props) => {
       </time>
       <article
         className="prose prose-sm mt-8"
-        dangerouslySetInnerHTML={{ __html: props.body }}
+        dangerouslySetInnerHTML={{ __html: props.content }}
       ></article>
     </div>
   );
 };
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-  const data = await client.getList({ endpoint: "blog" });
+  const data = await client.getList({ endpoint: "blogs" });
   const ids = data.contents.map((content) => `/blog/${content.id}`);
   return {
     paths: ids,
@@ -37,7 +39,7 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
     return { notFound: true };
   }
   const data = await client.getListDetail<Blog>({
-    endpoint: "blog",
+    endpoint: "blogs",
     contentId: ctx.params.id,
   });
 
