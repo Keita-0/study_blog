@@ -2,13 +2,13 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { ComponentProps, FormEventHandler, useState } from "react";
-import { Layout } from "src/component/Layout";
-import Tabs from "src/component/Tabs";
 import { client } from "../libs/client";
 
 export type Blog = {
   title: string;
+  icon: string;
   content: string;
+  category: { name: string; id: string }[];
 };
 
 type Props = MicroCMSListResponse<Blog>;
@@ -25,6 +25,18 @@ const Home: NextPage<Props> = (props) => {
       body: JSON.stringify({ q }),
     });
     const json = await data.json();
+    setSearch(json);
+  };
+
+  const onClickCategory = async (id: string) => {
+    const data = await fetch("/api/search", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    const json = await data.json();
+    console.log(json);
+
     setSearch(json);
   };
 
@@ -54,12 +66,20 @@ const Home: NextPage<Props> = (props) => {
         {contents.map((content) => {
           return (
             <li key={content.id}>
+              {content.icon}
               <Link
                 href={`/blog/${content.id}`}
                 className="text-xl text-blue-800 underline hover:text-blue-400"
               >
                 {content.title}
               </Link>
+              {content.category.map((cate) => {
+                return (
+                  <button onClick={() => onClickCategory(cate.id)}>
+                    {cate.name}
+                  </button>
+                );
+              })}
             </li>
           );
         })}

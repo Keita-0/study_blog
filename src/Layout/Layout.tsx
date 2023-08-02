@@ -9,15 +9,11 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ children }) => {
-  const [test, setTest] = useState("start");
-
   return (
-    <div className="flex min-h-screen flex-col font-mono">
-      {/* <Header /> */}
-      <div onClick={() => setTest("second")}>test</div>
-      <p>{test}</p>
-      <Tabs tabs={["home", "Blog", "profile"]} />
-      <main className="flex w-screen flex-1 flex-col items-center justify-center">
+    <div className="mx-80 flex min-h-screen flex-col font-sans ">
+      <Header />
+      <Tabs />
+      <main className="flex flex-1 flex-col items-center justify-center">
         {children}
       </main>
       <Footer />

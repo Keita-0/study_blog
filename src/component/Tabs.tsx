@@ -1,32 +1,34 @@
-import Image from "next/image";
 import Link from "next/link";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 
-type TabProps = {
-  tabs: string[];
-};
+type TabType = { title: string; path: string };
 
-const Tabs = React.memo(({ tabs }: TabProps) => {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+const tabObj: TabType[] = [
+  { title: "Blog", path: "/" },
+  { title: "About Me", path: "/profile" },
+];
+
+const Tabs = () => {
+  const [activeTab, setActiveTab] = useState<string>(tabObj[0].title);
 
   return (
-    <div className="flex w-full px-32 py-3 ">
-      {tabs.map((tab) => (
+    <div className="mb-1.5 flex w-full px-32 py-3">
+      {tabObj.map((tab) => (
         <Link
-          key={tab}
-          href={`/${tab}`}
-          onClick={() => setActiveTab(tab)}
+          key={tab.title}
+          href={`/${tab.path}`}
+          onClick={() => setActiveTab(tab.title)}
           className={`px-4 text-gray-600 hover:cursor-pointer hover:text-black ${
-            tab === activeTab
+            tab.title === activeTab
               ? "rounded-b-none border-b-2 border-solid border-green-400"
               : ""
           }`}
         >
-          {tab}
+          {tab.title}
         </Link>
       ))}
     </div>
   );
-});
+};
 
 export default Tabs;
