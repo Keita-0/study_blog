@@ -24,20 +24,30 @@ const Home: NextPage<Props> = (props) => {
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ q }),
     });
+
     const json = await data.json();
     setSearch(json);
   };
 
   const onClickCategory = async (id: string) => {
-    const data = await fetch("/api/search", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ id }),
+    // const data = await fetch("/api/v1/blogs", {
+    //   method: "POST",
+    //   headers: { "Content-type": "application/json" },
+    //   body: JSON.stringify({
+    //     title: "（サンプル）まずはこの記事を開きましょう",
+    //   }),
+    //   // body: JSON.stringify({ q: { category: [{ id: id }] } }),
+    // });
+    const data = await client.getList<Blog>({
+      endpoint: "blogs",
+      queries: { q: "jam" },
     });
-    const json = await data.json();
-    console.log(json);
+    // console.log(JSON.stringify({ id: "lchr4cwma8" }));
 
-    setSearch(json);
+    // const json = await data.json();
+    console.log(data);
+
+    // setSearch(json);
   };
 
   const handleClick: ComponentProps<"button">["onClick"] = () => {
