@@ -13,7 +13,7 @@ export const Layout: FC<Props> = ({ children }) => {
     <div className="font-sans text-gray-800">
       <div className="mx-80 flex min-h-screen flex-col ">
         <Header />
-        <Tabs />
+        {/* <Tabs /> */}
         <main className="flex flex-1 flex-col items-center">{children}</main>
         <Footer />
       </div>
