@@ -7,8 +7,6 @@ import { Blog } from "src/pages";
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
-  console.log(props);
-
   return (
     <div>
       <h1 className="text-4xl font-bold">{props.title}</h1>

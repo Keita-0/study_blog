@@ -1,14 +1,35 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { ComponentProps, FormEventHandler, useState } from "react";
-import { client } from "../libs/client";
+import { ComponentProps, useState } from "react";
+import { client } from "src/libs/client";
 
 export type Blog = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
   title: string;
-  icon: string;
   content: string;
-  category: { name: string; id: string }[];
+  category: {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    name: string;
+  }[];
+  icon: string;
+};
+
+export type CategoryType = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  name: string;
 };
 
 type Props = MicroCMSListResponse<Blog>;
@@ -19,6 +40,8 @@ const Home: NextPage<Props> = (props) => {
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (event) => {
     event.preventDefault();
     const q = event.currentTarget.query.value;
+    console.log(q);
+
     const data = await fetch("/api/search", {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -27,27 +50,6 @@ const Home: NextPage<Props> = (props) => {
 
     const json = await data.json();
     setSearch(json);
-  };
-
-  const onClickCategory = async (id: string) => {
-    // const data = await fetch("/api/v1/blogs", {
-    //   method: "POST",
-    //   headers: { "Content-type": "application/json" },
-    //   body: JSON.stringify({
-    //     title: "（サンプル）まずはこの記事を開きましょう",
-    //   }),
-    //   // body: JSON.stringify({ q: { category: [{ id: id }] } }),
-    // });
-    const data = await client.getList<Blog>({
-      endpoint: "blogs",
-      queries: { q: "jam" },
-    });
-    // console.log(JSON.stringify({ id: "lchr4cwma8" }));
-
-    // const json = await data.json();
-    console.log(data);
-
-    // setSearch(json);
   };
 
   const handleClick: ComponentProps<"button">["onClick"] = () => {
@@ -85,9 +87,13 @@ const Home: NextPage<Props> = (props) => {
               </Link>
               {content.category.map((cate) => {
                 return (
-                  <button onClick={() => onClickCategory(cate.id)}>
+                  <Link
+                    key={cate.id}
+                    href={`/blog/categories/${cate.id}`}
+                    className="text-xl text-blue-800 underline hover:text-blue-400"
+                  >
                     {cate.name}
-                  </button>
+                  </Link>
                 );
               })}
             </li>
