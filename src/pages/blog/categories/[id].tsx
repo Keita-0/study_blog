@@ -2,7 +2,7 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { client } from "src/libs/client";
-import { Blog, CategoryType } from "src/pages";
+import { Blog, CategoryType } from "src/pages/blog";
 
 type Props = {
   data: MicroCMSListResponse<Blog>;
@@ -20,7 +20,7 @@ const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
             <li key={content.id}>
               {content.icon}
               <Link
-                href={`/blog/${content.id}`}
+                href={`/blog/detail/${content.id}`}
                 className="text-xl text-blue-800 underline hover:text-blue-400"
               >
                 {content.title}

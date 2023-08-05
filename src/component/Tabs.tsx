@@ -18,7 +18,7 @@ const Tabs = () => {
           key={tab.title}
           href={`/${tab.path}`}
           onClick={() => setActiveTab(tab.title)}
-          className={`px-4 text-gray-600 hover:cursor-pointer hover:text-black ${
+          className={`px-4 hover:cursor-pointer hover:text-black ${
             tab.title === activeTab
               ? "rounded-b-none border-b-2 border-solid border-green-400"
               : ""

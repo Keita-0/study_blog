@@ -10,13 +10,13 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   return (
-    <div className="mx-80 flex min-h-screen flex-col font-sans ">
-      <Header />
-      <Tabs />
-      <main className="flex flex-1 flex-col items-center justify-center">
-        {children}
-      </main>
-      <Footer />
+    <div className="font-sans text-gray-800">
+      <div className="mx-80 flex min-h-screen flex-col ">
+        <Header />
+        <Tabs />
+        <main className="flex flex-1 flex-col items-center">{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };
