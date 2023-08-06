@@ -40,8 +40,7 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
     endpoint: "blogs",
     contentId: ctx.params.id,
   });
-
-  return { props: data };
+  return { props: data, revalidate: 30 };
 };
 
 export default BlogId;

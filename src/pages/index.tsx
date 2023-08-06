@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="mt-10 flex w-9/12 flex-row justify-around">
-        <Link href={`/profile/`} className="text-xl underline no-underline">
+        <Link href={`/profile/`} className="text-xl no-underline">
           <div className="flex h-60 w-60 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 hover:scale-105">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
             About Me
           </div>
         </Link>
-        <Link href={`/blog/`} className="text-xl underline no-underline">
+        <Link href={`/blog/`} className="text-xl no-underline">
           <div className="flex h-60 w-60 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 ease-out hover:scale-105">
             <svg
               xmlns="http://www.w3.org/2000/svg"
