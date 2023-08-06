@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
-    <>
+    <div className="m-auto flex w-full flex-col items-center">
       <div className="flex w-full items-center justify-center">
         <div className="white-space w-90 inline-block w-80 animate-caret-border overflow-hidden border-r-8 border-transparent text-5xl font-bold">
           <span>Hello,&nbsp;I&apos;m&nbsp;</span>
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           </div>
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

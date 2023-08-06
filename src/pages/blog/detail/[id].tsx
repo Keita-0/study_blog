@@ -1,19 +1,14 @@
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { client } from "src/libs/client";
 import { Blog } from "src/pages/blog";
 
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <p>fallback中です・・・</p>;
-  }
   return (
-    <div>
+    <div className="mt-20">
       <h1 className="text-4xl font-bold">{props.title}</h1>
       <time dateTime={props.publishedAt} className="mt-2 block">
         {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
@@ -31,19 +26,19 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const ids = data.contents.map((content) => `/blog/detail/${content.id}`);
   return {
     paths: ids,
-    fallback: true,
+    fallback: "blocking",
   };
 };
 
-export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
-  ctx
-) => {
-  if (!ctx.params) {
+export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({
+  params,
+}) => {
+  if (!params) {
     return { notFound: true };
   }
   const data = await client.getListDetail<Blog>({
     endpoint: "blogs",
-    contentId: ctx.params.id,
+    contentId: params.id,
   });
   return { props: data, revalidate: 30 };
 };

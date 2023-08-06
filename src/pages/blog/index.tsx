@@ -59,7 +59,7 @@ const Blog: NextPage<Props> = (props) => {
   const contents = search ? search.contents : props.contents;
   const totalCount = search ? search.totalCount : props.totalCount;
   return (
-    <div className="w-10/12">
+    <div className="mt-20 w-10/12">
       <form className="flex gap-x-2" onSubmit={handleSubmit}>
         <input type="text" name="query" className="border-block border px-2" />
         <button className="border border-black p-2">検索</button>
@@ -74,11 +74,11 @@ const Blog: NextPage<Props> = (props) => {
       <p className="mt-4 text-gray-400">{`${
         search ? "検索結果" : "記事の総数"
       }：${totalCount}件数`}</p>
-      <div className="m-4 flex flex-row flex-wrap justify-around">
+      <div className="m-4 flex flex-row flex-wrap justify-start">
         {contents.map((content) => {
           return (
             <Link key={content.id} href={`/blog/detail/${content.id}`}>
-              <div className="mb-6 flex h-40 w-96 items-center justify-evenly rounded-2xl border-4 transition-all duration-500 hover:scale-105">
+              <div className="mx-3 mb-6 flex h-40 w-96 items-center justify-evenly rounded-2xl border-4 transition-all duration-500 hover:scale-105">
                 <div className="flex h-16 w-12 items-center justify-center rounded-2xl">
                   <p className="text-3xl">{content.icon}</p>
                 </div>

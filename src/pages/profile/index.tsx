@@ -2,15 +2,15 @@ import { NextPage } from "next";
 
 const Profile: NextPage = () => {
   return (
-    <div className="flex w-full flex-col justify-start">
-      <div className="mb-8 animate-proflie-animation text-5xl font-bold">
+    <div className="mt-20 flex w-full flex-col justify-start px-8">
+      <div className="mb-8 animate-track-in-animation text-5xl font-bold">
         About.
       </div>
       <div className="mb-8">
-        <div className="mb-3 animate-proflie-animation text-3xl font-bold">
+        <div className="mb-3 animate-track-in-animation text-3xl font-bold">
           Me
         </div>
-        <ul className="mx-6 animate-proflie-animation-item list-disc">
+        <ul className="mx-6 animate-track-in-animation-item list-disc">
           <li className="mb-3">
             <span>
               名前
@@ -35,10 +35,10 @@ const Profile: NextPage = () => {
         </ul>
       </div>
       <div className="mb-8">
-        <div className="mb-3 animate-proflie-animation text-3xl font-bold ">
+        <div className="mb-3 animate-track-in-animation text-3xl font-bold ">
           Hobby
         </div>
-        <ul className="mx-6 animate-proflie-animation-item list-disc ">
+        <ul className="mx-6 animate-track-in-animation-item list-disc ">
           <li className="mb-3">
             <span>漫画</span>
           </li>

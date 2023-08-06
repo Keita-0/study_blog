@@ -1,6 +1,7 @@
 import "src/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Layout } from "src/Layout/Layout";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
