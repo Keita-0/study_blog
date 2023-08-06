@@ -1,12 +1,17 @@
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { client } from "src/libs/client";
 import { Blog } from "src/pages/blog";
 
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <p>fallback中です・・・</p>;
+  }
   return (
     <div>
       <h1 className="text-4xl font-bold">{props.title}</h1>
