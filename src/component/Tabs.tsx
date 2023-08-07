@@ -11,14 +11,9 @@ const tabObj: TabType[] = [
 
 const Tabs = () => {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<string>(router.pathname);
-
-  useEffect(() => {
-    setActiveTab(router.pathname);
-  }, [router]);
 
   return (
-    <div className="fixed top-1 mx-auto mt-3">
+    <div className="top fixed mx-auto w-full bg-white px-80 py-3">
       <Link href={`/`} className="mr-4 text-xl font-bold">
         <span className="text-green-500">KM</span> <span>Blog</span>
       </Link>
@@ -26,7 +21,6 @@ const Tabs = () => {
         <Link
           key={tab.title}
           href={`/${tab.path}`}
-          onClick={() => setActiveTab(tab.path)}
           className={`mr-1 px-3  transition-all duration-200 hover:cursor-pointer hover:border-b-2 hover:text-black ${
             router.asPath.includes(tab.path)
               ? "rounded-b-none border-b-2 border-solid border-green-400"
