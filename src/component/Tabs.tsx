@@ -13,7 +13,7 @@ const Tabs = () => {
   const router = useRouter();
 
   return (
-    <div className="top fixed mx-auto w-full bg-white px-80 py-3">
+    <div className="top fixed mx-56 w-full bg-white py-3">
       <Link href={`/`} className="mr-4 text-xl font-bold">
         <span className="text-green-500">KM</span> <span>Blog</span>
       </Link>

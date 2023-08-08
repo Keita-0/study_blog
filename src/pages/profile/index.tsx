@@ -2,7 +2,7 @@ import { NextPage } from "next";
 
 const Profile: NextPage = () => {
   return (
-    <div className="mt-20 flex w-full flex-col justify-start px-8">
+    <div className="mt-20 flex w-3/4 flex-col justify-start px-8">
       <div className="mb-8 animate-track-in-animation text-5xl font-bold">
         About.
       </div>

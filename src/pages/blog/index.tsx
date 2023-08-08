@@ -85,54 +85,50 @@ const Blog: NextPage<Props> = (props) => {
       <p className="mt-4 text-gray-400">{`${
         search ? "検索結果" : "記事の総数"
       }：${totalCount}件数`}</p>
-      <div className="m-4 flex flex-row flex-wrap justify-start">
+      <div className="m-auto grid grid-cols-2 gap-1">
         {contents.map((content) => {
           return (
             <Link key={content.id} href={`/blog/detail/${content.id}`}>
-              <div className="mx-3 mb-6 flex h-40 w-96 items-center justify-evenly rounded-xl border transition-all duration-500 hover:opacity-80">
-                <div className="flex h-16 w-12 items-center justify-center rounded-2xl">
-                  <p className="text-3xl">{content.icon}</p>
+              <div className="mx-3 mb-6 flex flex h-64 flex-col justify-between overflow-hidden rounded-xl border transition-all duration-500 hover:opacity-80">
+                <div className="flex h-1/2 w-full flex-col items-center justify-center bg-green-200">
+                  <h3 className="block text-3xl">{content.icon}</h3>
+                  <p className="block font-bold">{content.title}</p>
                 </div>
-                <div className="flex h-3/5 w-2/3 flex-col justify-between">
-                  <div>
-                    <p className="font-bold">{content.title}</p>
-                  </div>
-                  <div className="scrolling-touch overflow-x-auto whitespace-nowrap">
-                    <div className="flex">
-                      {content.category.map((cate) => {
-                        return (
-                          <Link
-                            key={cate.id}
-                            href={`/blog/categories/${cate.id}`}
-                            className="no-underline"
-                          >
-                            <div className="mr-1 flex items-center rounded-xl border bg-green-500 px-2 py-1">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="mr-1 h-4 w-4"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
-                                />
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M6 6h.008v.008H6V6z"
-                                />
-                              </svg>
+                <div className="scrolling-touch overflow-x-auto whitespace-nowrap">
+                  <div className="my-auto flex">
+                    {content.category.map((cate) => {
+                      return (
+                        <Link
+                          key={cate.id}
+                          href={`/blog/categories/${cate.id}`}
+                          className="no-underline"
+                        >
+                          <div className="mr-1 flex items-center rounded-xl border bg-green-500 px-2 py-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="mr-1 h-4 w-4"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 6h.008v.008H6V6z"
+                              />
+                            </svg>
 
-                              <p className="text-xs text-white">{cate.name}</p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
+                            <p className="text-xs text-white">{cate.name}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
