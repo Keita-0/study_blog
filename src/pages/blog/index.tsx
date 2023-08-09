@@ -3,6 +3,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { ComponentProps, useState } from "react";
 import { client } from "src/libs/client";
+import dayjs from "dayjs";
 
 export type Blog = {
   id: string;
@@ -91,11 +92,12 @@ const Blog: NextPage<Props> = (props) => {
             <Link key={content.id} href={`/blog/detail/${content.id}`}>
               <div className="mx-3 mb-6 flex flex h-64 flex-col justify-between overflow-hidden rounded-xl border transition-all duration-500 hover:opacity-80">
                 <div className="flex h-1/2 w-full flex-col items-center justify-center bg-green-200">
-                  <h3 className="block text-3xl">{content.icon}</h3>
+                  <h3 className="block p-2 text-3xl">{content.icon}</h3>
                   <p className="block font-bold">{content.title}</p>
                 </div>
-                <div className="scrolling-touch overflow-x-auto whitespace-nowrap">
-                  <div className="my-auto flex">
+                <div className="">
+                  <p>{dayjs(content.publishedAt).format("YYYY.MM.DD")}</p>
+                  <div className="scrolling-touch flex overflow-x-auto whitespace-nowrap">
                     {content.category.map((cate) => {
                       return (
                         <Link
