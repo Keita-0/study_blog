@@ -41,7 +41,6 @@ const Blog: NextPage<Props> = (props) => {
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (event) => {
     event.preventDefault();
     const q = event.currentTarget.query.value;
-    console.log(q);
 
     const data = await fetch("/api/search", {
       method: "POST",
@@ -50,6 +49,7 @@ const Blog: NextPage<Props> = (props) => {
     });
 
     const json = await data.json();
+
     setSearch(json);
   };
 
@@ -86,16 +86,16 @@ const Blog: NextPage<Props> = (props) => {
       <p className="mt-4 text-gray-400">{`${
         search ? "検索結果" : "記事の総数"
       }：${totalCount}件数`}</p>
-      <div className="m-auto grid grid-cols-2 gap-1">
+      <div className="m-auto grid grid-cols-3 gap-1">
         {contents.map((content) => {
           return (
             <Link key={content.id} href={`/blog/detail/${content.id}`}>
               <div className="mx-3 mb-6 flex flex h-64 flex-col justify-between overflow-hidden rounded-xl border transition-all duration-500 hover:opacity-80">
-                <div className="flex h-1/2 w-full flex-col items-center justify-center bg-green-200">
+                <div className="flex h-3/5 w-full flex-col items-center justify-center bg-green-200 p-3">
                   <h3 className="block p-2 text-3xl">{content.icon}</h3>
                   <p className="block font-bold">{content.title}</p>
                 </div>
-                <div className="">
+                <div className="flex h-2/5 flex-col justify-around px-4 py-2">
                   <p>{dayjs(content.publishedAt).format("YYYY.MM.DD")}</p>
                   <div className="scrolling-touch flex overflow-x-auto whitespace-nowrap">
                     {content.category.map((cate) => {
@@ -105,7 +105,7 @@ const Blog: NextPage<Props> = (props) => {
                           href={`/blog/categories/${cate.id}`}
                           className="no-underline"
                         >
-                          <div className="mr-1 flex items-center rounded-xl border bg-green-500 px-2 py-1">
+                          <div className="mr-1 flex items-center rounded-xl border bg-gray-200 px-2 py-1">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -126,7 +126,7 @@ const Blog: NextPage<Props> = (props) => {
                               />
                             </svg>
 
-                            <p className="text-xs text-white">{cate.name}</p>
+                            <p className="text-xs">{cate.name}</p>
                           </div>
                         </Link>
                       );

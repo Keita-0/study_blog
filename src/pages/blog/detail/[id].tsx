@@ -8,13 +8,13 @@ type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 w-3/4">
       <h1 className="text-4xl font-bold">{props.title}</h1>
       <time dateTime={props.publishedAt} className="mt-2 block">
         {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
       </time>
       <article
-        className="prose prose-sm mt-8"
+        className="prose prose-sm max-w-none pt-7"
         dangerouslySetInnerHTML={{ __html: props.content }}
       ></article>
     </div>
