@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, ReactNode } from "react";
 import Tabs from "src/component/Tabs";
 
 type Props = {

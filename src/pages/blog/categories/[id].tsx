@@ -12,7 +12,7 @@ type Props = {
 const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
   const contents = data.contents;
   return (
-    <div className="mt-20 w-10/12">
+    <div className="mt-14 w-full md:mt-20 xl:w-10/12">
       <div className="flex animate-track-in-animation flex-row">
         <div className="mr-1 flex items-center px-2 py-1">
           <svg
@@ -21,7 +21,7 @@ const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="mr-1 h-8 w-8"
+            className="mr-1 h-6 w-6 md:h-8 md:w-8"
           >
             <path
               strokeLinecap="round"
@@ -34,7 +34,7 @@ const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
               d="M6 6h.008v.008H6V6z"
             />
           </svg>
-          <p className="text-3xl font-bold">{categoryName}</p>
+          <p className="text-xl font-bold md:text-3xl">{categoryName}</p>
         </div>
       </div>
       <PostList data={contents} />

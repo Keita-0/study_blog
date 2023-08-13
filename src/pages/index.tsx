@@ -5,15 +5,15 @@ const Home: NextPage = () => {
   return (
     <div className="m-auto flex w-full flex-col items-center">
       <div className="flex w-full items-center justify-center">
-        <div className="white-space w-90 inline-block w-80 animate-caret-border overflow-hidden border-r-8 border-transparent text-5xl font-bold">
+        <div className="white-space inline-block w-52 animate-caret-border overflow-hidden border-r-8 border-transparent text-3xl font-bold md:w-80 md:text-5xl">
           <span>Hello,&nbsp;I&apos;m&nbsp;</span>
           <span className="text-green-500">KM</span>
           <span>.</span>
         </div>
       </div>
-      <div className="mt-10 flex w-9/12 flex-row justify-around">
+      <div className="mt-3 flex w-9/12 flex-col items-center md:mt-10 md:flex-row md:justify-around">
         <Link href={`/profile/`} className="text-xl no-underline">
-          <div className="flex h-60 w-60 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 hover:scale-105">
+          <div className="m-5 flex h-40 w-40 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 hover:scale-105 md:h-60 md:w-60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           </div>
         </Link>
         <Link href={`/blog/`} className="text-xl no-underline">
-          <div className="flex h-60 w-60 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 ease-out hover:scale-105">
+          <div className="flex h-40 w-40 flex-col items-center justify-center rounded-2xl border-4 transition-all duration-500 hover:scale-105 md:h-60 md:w-60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

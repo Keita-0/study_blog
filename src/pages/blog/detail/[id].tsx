@@ -9,8 +9,8 @@ type Props = BlogType & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
   return (
-    <div className="mt-20 w-3/4">
-      <h1 className="animate-track-in-animation text-4xl font-bold">
+    <div className="mt-14 w-full md:mt-20 md:w-3/4">
+      <h1 className="animate-track-in-animation text-2xl font-bold md:text-4xl">
         {props.title}
       </h1>
       <div className="animate-track-in-animation-item">

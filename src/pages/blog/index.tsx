@@ -12,9 +12,11 @@ const Blog: NextPage<Props> = (props) => {
   const contents = search ? search.contents : props.contents;
 
   return (
-    <div className="mt-20 w-10/12">
+    <div className="mt-14 w-full md:mt-20 xl:w-10/12">
       <div>
-        <h1 className="animate-track-in-animation text-4xl font-bold">Blog</h1>
+        <h1 className="animate-track-in-animation text-3xl font-bold md:text-4xl">
+          Blog
+        </h1>
       </div>
       {contents.length === 0 ? (
         <p>データがありません</p>

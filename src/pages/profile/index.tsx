@@ -2,12 +2,12 @@ import { NextPage } from "next";
 
 const Profile: NextPage = () => {
   return (
-    <div className="mt-20 flex w-10/12 flex-col justify-start px-8">
-      <div className="mb-8 animate-track-in-animation text-5xl font-bold">
+    <div className="mt-14 flex w-full flex-col justify-start md:mt-20 md:px-8 xl:w-10/12">
+      <div className="mb-4 animate-track-in-animation text-3xl font-bold md:mb-8 md:text-5xl">
         About.
       </div>
-      <div className="mb-8">
-        <div className="mb-3 animate-track-in-animation text-3xl font-bold">
+      <div className="mb-2 md:mb-8">
+        <div className="mb-2 animate-track-in-animation text-xl font-bold md:mb-3 md:text-3xl">
           Me
         </div>
         <ul className="mx-6 animate-track-in-animation-item list-disc">
@@ -34,8 +34,8 @@ const Profile: NextPage = () => {
           </li>
         </ul>
       </div>
-      <div className="mb-8">
-        <div className="mb-3 animate-track-in-animation text-3xl font-bold ">
+      <div className="mb-2 md:mb-8">
+        <div className="mb-2 animate-track-in-animation text-xl font-bold md:mb-3 md:text-3xl">
           Hobby
         </div>
         <ul className="mx-6 animate-track-in-animation-item list-disc ">

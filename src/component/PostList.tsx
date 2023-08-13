@@ -8,11 +8,11 @@ type Props = { data: (BlogType & MicroCMSContentId & MicroCMSDate)[] };
 const PostList = ({ data }: Props) => {
   const contents = data;
   return (
-    <div className="my-8 grid animate-track-in-animation-item grid-cols-3 gap-1 ">
+    <div className="my-4 grid animate-track-in-animation-item grid-cols-1 gap-1 md:my-8 md:grid-cols-2 xl:grid-cols-3 ">
       {contents.map((content) => {
         return (
           <Link key={content.id} href={`/blog/detail/${content.id}`}>
-            <div className="mx-3 mb-6 flex h-64 flex-col justify-between overflow-hidden rounded-xl border transition-all duration-500 hover:scale-105 ">
+            <div className="mx-3 mb-3 flex h-52 flex-col justify-between overflow-hidden rounded-xl border transition-all duration-500 hover:scale-105 md:mb-6 md:h-64 ">
               <div className="flex h-3/5 w-full flex-col items-center justify-center bg-green-200 p-3">
                 <h3 className="block p-2 text-3xl">{content.icon}</h3>
                 <p className="block font-bold">{content.title}</p>
