@@ -23,8 +23,7 @@ module.exports = {
         },
         "track-in-animation": {
           "0%": {
-            "letter-spacing": "-.5em",
-            transform: "translateZ(-700px) translateY(500px)",
+            transform: "translateZ(-700px) translateY(100px)",
             opacity: "0",
           },
           "40%": {

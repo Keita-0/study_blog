@@ -1,46 +1,44 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Link from "next/link";
+import PostList from "src/component/PostList";
 import { client } from "src/libs/client";
-import { Blog, CategoryType } from "src/pages/blog";
+import { BlogType, CategoryType } from "src/types/blog";
 
 type Props = {
-  data: MicroCMSListResponse<Blog>;
+  data: MicroCMSListResponse<BlogType>;
   categoryName: string;
 };
 
 const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
   const contents = data.contents;
   return (
-    <>
-      <h2>{categoryName}</h2>
-      <ul className="mt-4 space-y-4">
-        {contents.map((content) => {
-          return (
-            <li key={content.id}>
-              {content.icon}
-              <Link
-                href={`/blog/detail/${content.id}`}
-                className="text-xl text-blue-800 underline hover:text-blue-400"
-              >
-                {content.title}
-              </Link>
-              {content.category.map((cate) => {
-                return (
-                  <Link
-                    key={cate.id}
-                    href={`/blog/categories/${cate.id}`}
-                    className="text-xl text-blue-800 underline hover:text-blue-400"
-                  >
-                    {cate.name}
-                  </Link>
-                );
-              })}
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <div className="mt-20 w-10/12">
+      <div className="flex animate-track-in-animation flex-row">
+        <div className="mr-1 flex items-center px-2 py-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="mr-1 h-8 w-8"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 6h.008v.008H6V6z"
+            />
+          </svg>
+          <p className="text-3xl font-bold">{categoryName}</p>
+        </div>
+      </div>
+      <PostList data={contents} />
+    </div>
   );
 };
 
@@ -67,7 +65,7 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({
 
   const categoryName = category.name;
 
-  const data = await client.getList<Blog>({
+  const data = await client.getList<BlogType>({
     endpoint: "blogs",
     queries: { filters: `category[contains]${params.id}` },
   });
