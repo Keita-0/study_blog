@@ -15,7 +15,6 @@ const Tabs = () => {
 
   const onClickNavBar = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   return (
@@ -28,8 +27,8 @@ const Tabs = () => {
           {tabObj.map((tab) => (
             <Link
               key={tab.title}
-              href={`/${tab.path}`}
-              className={`mr-1 px-3  transition-all duration-200 hover:cursor-pointer hover:border-b-2 hover:text-black ${
+              href={`${tab.path}`}
+              className={`hover-hover:cursor-pointer hover-hover:border-b-2  hover-hover:text-black mr-1 px-3 transition-all duration-200 ${
                 router.asPath.includes(tab.path)
                   ? "rounded-b-none border-b-2 border-solid border-green-400"
                   : ""
@@ -40,7 +39,11 @@ const Tabs = () => {
           ))}
         </nav>
       </div>
-      <button className="bg-red z-30 h-6 w-6 md:hidden" onClick={onClickNavBar}>
+      <button
+        name="navButton"
+        className="bg-red z-30 h-6 w-6 md:hidden"
+        onClick={onClickNavBar}
+      >
         {isOpen ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +78,7 @@ const Tabs = () => {
       </button>
 
       <div
-        className={`fixed top-0 z-20 h-full w-full ${
+        className={`fixed top-0 z-20 h-full w-full md:hidden ${
           isOpen ? "animate-slide-in-top" : "animate-slide-out-top"
         } bg-gray-100`}
       >

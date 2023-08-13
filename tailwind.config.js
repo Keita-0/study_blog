@@ -1,5 +1,8 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  screens: {
+    "hover-hover": { raw: "(hover: hover)" },
+  },
   theme: {
     extend: {
       animation: {

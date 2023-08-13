@@ -25,7 +25,7 @@ const BlogId: NextPage<Props> = (props) => {
                 href={`/blog/categories/${cate.id}`}
                 className="no-underline"
               >
-                <div className="mr-1 flex items-center rounded-xl border bg-gray-200 px-2 py-1 transition-all duration-500 hover:opacity-60">
+                <div className="hover-hover:opacity-60 mr-1 flex items-center rounded-xl border bg-gray-200 px-2 py-1 transition-all duration-500">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
