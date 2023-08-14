@@ -19,7 +19,7 @@ const Tabs = () => {
 
   return (
     <div className="fixed z-10 flex w-full flex-row justify-center bg-white py-3">
-      <div className="flex w-5/6 flex-row items-center justify-between md:justify-start xl:w-2/3 ">
+      <div className="flex w-5/6 flex-row place-items-end justify-between md:justify-start xl:w-2/3 ">
         <Link href={`/`} className="mr-4 flex flex-row text-xl font-bold">
           <h1 className="text-green-500">KM</h1>&nbsp;<h1>Blog</h1>
         </Link>
@@ -28,10 +28,10 @@ const Tabs = () => {
             <Link
               key={tab.title}
               href={`${tab.path}`}
-              className={`hover-hover:cursor-pointer hover-hover:border-b-2  hover-hover:text-black mr-1 px-3 transition-all duration-200 ${
+              className={`mr-1 border-b-2  px-3 transition-all duration-200 lg:hover:cursor-pointer lg:hover:border-gray-400 lg:hover:text-black ${
                 router.asPath.includes(tab.path)
                   ? "rounded-b-none border-b-2 border-solid border-green-400"
-                  : ""
+                  : "border-transparent"
               }`}
             >
               <li className="list-none">{tab.title}</li>
@@ -40,8 +40,9 @@ const Tabs = () => {
         </nav>
       </div>
       <button
-        name="navButton"
-        className="bg-red z-30 h-6 w-6 md:hidden"
+        id="menu-button"
+        aria-label="menu-button"
+        className="z-30 md:hidden"
         onClick={onClickNavBar}
       >
         {isOpen ? (
