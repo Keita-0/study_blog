@@ -28,10 +28,10 @@ const Tabs = () => {
             <Link
               key={tab.title}
               href={`${tab.path}`}
-              className={`mr-1 border-b-2  px-3 transition-all duration-200 lg:hover:cursor-pointer lg:hover:border-gray-400 lg:hover:text-black ${
+              className={`mr-1 border-b-2  px-3 transition-all duration-200 lg:hover:cursor-pointer  lg:hover:text-black ${
                 router.asPath.includes(tab.path)
-                  ? "rounded-b-none border-b-2 border-solid border-green-400"
-                  : "border-transparent"
+                  ? "border-green-400"
+                  : "border-transparent lg:hover:border-gray-400"
               }`}
             >
               <li className="list-none">{tab.title}</li>
@@ -77,11 +77,11 @@ const Tabs = () => {
           </svg>
         )}
       </button>
-
+      {/* ${isOpen ? "animate-slide-in-top" : "animate-slide-out-top"} */}
       <div
-        className={`fixed top-0 z-20 h-full w-full md:hidden ${
-          isOpen ? "animate-slide-in-top" : "animate-slide-out-top"
-        } bg-gray-100`}
+        className={`fixed top-0 z-20 h-full w-full transition-all duration-500 ${
+          isOpen ? "" : "-translate-y-full"
+        } bg-gray-100 md:hidden`}
       >
         <ul className="absolute top-8 w-full">
           <li className="flex h-7 w-full justify-center border-b-2">
