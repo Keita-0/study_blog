@@ -11,10 +11,6 @@ module.exports = {
           "track-in-animation 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s   both",
         "nav-icon-animation":
           "nav-icon-animation 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000)   both",
-        "slide-in-top":
-          "slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
-        "slide-out-top":
-          "slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both",
       },
       keyframes: {
         "nav-icon-animation": {
@@ -26,26 +22,6 @@ module.exports = {
           },
           to: {
             opacity: "1",
-          },
-        },
-        "slide-in-top": {
-          "0%": {
-            transform: "translateY(-1000px)",
-            opacity: "0",
-          },
-          to: {
-            transform: "translateY(0)",
-            opacity: "1",
-          },
-        },
-        "slide-out-top": {
-          "0%": {
-            transform: "translateY(0)",
-            opacity: "1",
-          },
-          to: {
-            transform: "translateY(-1000px)",
-            opacity: "0",
           },
         },
         "caret-border": {
