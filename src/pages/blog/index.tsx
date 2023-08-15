@@ -1,6 +1,6 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
-import { ComponentProps, useState } from "react";
+import { useState } from "react";
 import PostList from "src/component/PostList";
 import { client } from "src/libs/client";
 import { BlogType } from "src/types/blog";
@@ -33,7 +33,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   });
   return {
     props: data,
-    revalidate: 30,
   };
 };
 
