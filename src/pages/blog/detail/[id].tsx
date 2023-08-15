@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({
     endpoint: "blogs",
     contentId: params.id,
   });
-  return { props: data, revalidate: 30 };
+  return { props: data };
 };
 
 export default BlogId;
