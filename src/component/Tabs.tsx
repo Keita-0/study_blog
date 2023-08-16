@@ -77,7 +77,6 @@ const Tabs = () => {
           </svg>
         )}
       </button>
-      {/* ${isOpen ? "animate-slide-in-top" : "animate-slide-out-top"} */}
       <div
         className={`fixed top-0 z-20 h-full w-full transition-all duration-500 ${
           isOpen ? "" : "-translate-y-full"
