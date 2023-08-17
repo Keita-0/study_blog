@@ -8,8 +8,7 @@ import { BlogType } from "src/types/blog";
 type Props = MicroCMSListResponse<BlogType>;
 
 const Blog: NextPage<Props> = (props) => {
-  const [search, setSearch] = useState<MicroCMSListResponse<BlogType>>();
-  const contents = search ? search.contents : props.contents;
+  const contents = props.contents;
 
   return (
     <div className="mt-14 w-full md:mt-20 xl:w-10/12">

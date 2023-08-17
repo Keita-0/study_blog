@@ -50,6 +50,22 @@ const Profile: NextPage = () => {
           </li>
         </ul>
       </div>
+      <div className="mb-2 md:mb-8">
+        <div className="mb-2 animate-track-in-animation text-xl font-bold md:mb-3 md:text-3xl">
+          Skill
+        </div>
+        <ul className="mx-6 animate-track-in-animation-item list-disc ">
+          <li className="mb-3">
+            <span>Java</span>
+          </li>
+          <li className="mb-3">
+            <span>JavaScript</span>
+          </li>
+          <li className="mb-3">
+            <span>JSP</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
