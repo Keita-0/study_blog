@@ -18,7 +18,7 @@ const Blog: NextPage<Props> = (props) => {
         </h1>
       </div>
       {contents.length === 0 ? (
-        <p className="font-bold">データがありません</p>
+        <p className="font-bold text-gray-200">データがありません</p>
       ) : (
         <PostList data={contents} />
       )}
