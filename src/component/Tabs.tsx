@@ -18,7 +18,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className="fixed z-10 flex w-full flex-row justify-center bg-white py-3">
+    <div className="fixed z-10 flex w-full flex-row justify-center bg-white py-3 dark:bg-gray-800">
       <div className="flex w-5/6 flex-row place-items-end justify-between md:justify-start xl:w-2/3 ">
         <Link href={`/`} className="mr-4 flex flex-row text-xl font-bold">
           <h1 className="text-green-500">KM</h1>&nbsp;<h1>Blog</h1>
