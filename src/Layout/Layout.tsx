@@ -8,7 +8,7 @@ type Props = {
 
 export const Layout: FC<Props> = ({ children }) => {
   return (
-    <div className="font-sans text-gray-800">
+    <div className="font-sans text-gray-800 dark:bg-gray-800 dark:text-white">
       <div className="flex min-h-screen w-full flex-col">
         <Head>
           <title>KM BLOG</title>
