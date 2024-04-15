@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import PostList from "src/component/PostList";
 import { client } from "src/libs/client";
 import { BlogType, CategoryType } from "src/types/blog";
-
+//hoge
 type Props = {
   data: MicroCMSListResponse<BlogType>;
   categoryName: string;
