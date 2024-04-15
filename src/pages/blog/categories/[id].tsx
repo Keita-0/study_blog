@@ -8,7 +8,7 @@ type Props = {
   data: MicroCMSListResponse<BlogType>;
   categoryName: string;
 };
-
+//hoge
 const CategoriesId: NextPage<Props> = ({ data, categoryName }) => {
   const contents = data.contents;
   return (
